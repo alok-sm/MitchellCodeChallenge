@@ -52,7 +52,7 @@ namespace MitchellApi.Controllers
         /// <returns>The HTTP response message</returns>
         public override HttpResponseMessage Put(int id, VehicleModel model)
         {
-            return ValidateModel(model) ?? base.Put(model);
+            return ValidateModel(model) ?? base.Put(id, model);
         }
     }
 }
