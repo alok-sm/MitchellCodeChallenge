@@ -17,8 +17,14 @@ namespace MitchellApi.Tests
         /// </summary>
         public class ComputerModel : CrudModelBase
         {
+            /// <summary>
+            /// Name of the manufacturer
+            /// </summary>
             public string OemName { get; set; }
 
+            /// <summary>
+            /// name of the computer model
+            /// </summary>
             public string Model { get; set; }
         }
 
