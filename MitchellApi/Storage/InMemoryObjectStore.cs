@@ -23,11 +23,7 @@ namespace MitchellApi.Storage
         /// </summary>
         private readonly Dictionary<Type, List<CrudModelBase>> _storage;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="TCrudModel"></typeparam>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public List<TCrudModel> ListItems<TCrudModel>() where TCrudModel : CrudModelBase
         {
             if (!_storage.ContainsKey(typeof(TCrudModel)))
@@ -37,6 +33,7 @@ namespace MitchellApi.Storage
             return _storage[typeof(TCrudModel)].Cast<TCrudModel>().ToList();
         }
 
+        /// <inheritdoc/>
         public TCrudModel GetItem<TCrudModel>(int id) where TCrudModel : CrudModelBase
         {
             TCrudModel model = ListItems<TCrudModel>().FirstOrDefault(modelItr => modelItr.Id == id);
@@ -47,6 +44,7 @@ namespace MitchellApi.Storage
             return model;
         }
 
+        /// <inheritdoc/>
         public void AddItem<TCrudModel>(TCrudModel model) where TCrudModel : CrudModelBase
         {
             List<TCrudModel> list = ListItems<TCrudModel>();
@@ -59,6 +57,7 @@ namespace MitchellApi.Storage
             _storage[typeof(TCrudModel)].Add(model);
         }
 
+        /// <inheritdoc/>
         public void UpdateItem<TCrudModel>(int id, TCrudModel newModel) where TCrudModel : CrudModelBase
         {
             List<TCrudModel> list = ListItems<TCrudModel>();
@@ -73,6 +72,7 @@ namespace MitchellApi.Storage
             }
         }
 
+        /// <inheritdoc/>
         public void DeleteItem<TCrudModel>(int id) where TCrudModel : CrudModelBase
         {
             UpdateItem<TCrudModel>(id, null);

@@ -3,6 +3,9 @@ using MitchellApi.Models;
 
 namespace MitchellApi.Storage
 {
+    /// <summary>
+    /// Interface for the object store. 
+    /// </summary>
     public interface IObjectStore
     {
         /// <summary>

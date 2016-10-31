@@ -1,16 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
-using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MitchellApi.Models;
 using Newtonsoft.Json;
 
 namespace MitchellApi.Tests
 {
+    /// <summary>
+    /// Tests for the API endpoints
+    /// </summary>
     [TestClass]
     public class EndpointTests
     {
+        /// <summary>
+        /// Tests add, get and delete functions
+        /// </summary>
         [TestMethod]
         public void TestAddAndGetAndDelete()
         {
@@ -38,6 +43,9 @@ namespace MitchellApi.Tests
             }
         }
 
+        /// <summary>
+        /// tests inserting an object with a bad year (1900)
+        /// </summary>
         [TestMethod]
         public void TestBadYear()
         {
@@ -65,6 +73,9 @@ namespace MitchellApi.Tests
             }
         }
 
+        /// <summary>
+        /// Tests getting a list of all vehicles
+        /// </summary>
         [TestMethod]
         public void TestList()
         {
@@ -92,6 +103,9 @@ namespace MitchellApi.Tests
             }
         }
 
+        /// <summary>
+        /// Tests deleting a non-existent object
+        /// </summary>
         [TestMethod]
         public void TestBadDelete()
         {
@@ -108,6 +122,9 @@ namespace MitchellApi.Tests
             }
         }
 
+        /// <summary>
+        /// tests updating an object
+        /// </summary>
         [TestMethod]
         public void TestUpdate()
         {
@@ -146,6 +163,9 @@ namespace MitchellApi.Tests
             }
         }
 
+        /// <summary>
+        /// Tests updating a non-existent object
+        /// </summary>
         [TestMethod]
         public void TestBadUpdate()
         {
