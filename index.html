@@ -44,12 +44,12 @@ The <a href="http://alokmysore.com/MitchellCodeChallenge/Challenge.pdf">Challeng
 This is because most production applications use the CRUD interface several times and generalizing the CRUD aspect of the API would be useful if we were to write an endpoint for another class. This is how you would create a new <code>ComputerController</code> class:</li>
 </ul>
 
-<pre><code>    public class ComputerController: CrudControllerBase&lt;ComputerModel&gt;
-    public class ComputerModel : CrudModelBase
-    {
-        public string OemName { get; set; }
-        public string Model { get; set; }
-    }
+<pre><code>public class ComputerController: CrudControllerBase&lt;ComputerModel&gt;
+public class ComputerModel : CrudModelBase
+{
+    public string OemName { get; set; }
+    public string Model { get; set; }
+}
 </code></pre>
 
 <ul>
@@ -65,11 +65,21 @@ This is because most production applications use the CRUD interface several time
 
 <p>The CRUD interface can easily be extended to incorporate validation, etc. The controller class can override a virtual function on the <code>CrudControllerBase</code> class, do the validations and then (optionally) give the base class control to do the remaining job</p>
 </li>
-<li><h3>
-<a id="automated-unit-testing-and-api-endpoint-testing" class="anchor" href="#automated-unit-testing-and-api-endpoint-testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Automated Unit Testing and API endpoint testing</h3></li>
 </ul>
 
-<p>The API is hosted on <a href="http://mitchellchallenge.azurewebsites.net">http://mitchellchallenge.azurewebsites.net</a>. </p>
+<pre><code>public override HttpResponseMessage Post(VehicleModel model)
+{
+    if(model.Year &lt; 1950 || model.Year &gt; 2050) 
+    {
+        return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Year must be between 1950 and 2050");
+    }
+    return base.Post(model);
+}
+
+- ### Automated Unit Testing and API endpoint testing
+
+The API is hosted on [http://mitchellchallenge.azurewebsites.net](http://mitchellchallenge.azurewebsites.net). 
+</code></pre>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/alok-sm">alok-sm</a></p>
