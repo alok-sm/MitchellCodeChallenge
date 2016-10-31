@@ -1,33 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
     <title>Mitchell Coding Challenge by alok-sm</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
-
-    <header>
-      <div class="container">
+    <div class="wrapper">
+      <header>
         <h1>Mitchell Coding Challenge</h1>
-        <h2></h2>
+        <p></p>
 
-        <section id="downloads">
-          <a href="https://github.com/alok-sm/MitchellCodeChallenge/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/alok-sm/MitchellCodeChallenge/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/alok-sm/MitchellCodeChallenge" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+        <p class="view"><a href="https://github.com/alok-sm/MitchellCodeChallenge">View the Project on GitHub <small>alok-sm/MitchellCodeChallenge</small></a></p>
 
-    <div class="container">
-      <section id="main_content">
+
+        <ul>
+          <li><a href="https://github.com/alok-sm/MitchellCodeChallenge/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/alok-sm/MitchellCodeChallenge/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/alok-sm/MitchellCodeChallenge">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
         <h1>
 <a id="mitchell-coding-challenge" class="anchor" href="#mitchell-coding-challenge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mitchell Coding challenge</h1>
 
@@ -37,14 +37,20 @@ The <a href="http://alokmysore.com/MitchellCodeChallenge/Challenge.pdf">Challeng
 <h2>
 <a id="architecture" class="anchor" href="#architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Architecture</h2>
 
-<p>The solution was architected with three ideas in mind:</p>
+<p>The solution was architected with four ideas in mind:</p>
 
 <ul>
 <li>
 <h3>
 <a id="separation-of-crud-interface-and-the-vehicle-type" class="anchor" href="#separation-of-crud-interface-and-the-vehicle-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Separation of CRUD interface and the "Vehicle" type</h3>
 
-<p>This is because most production applications use the CRUD interface several times and generalizing the CRUD aspect of the API would be useful if we were to write an endpoint for another class.</p>
+<p>This is because most production applications use the CRUD interface several times and generalizing the CRUD aspect of the API would be useful if we were to write an endpoint for another class. This is how you would create a new <code>ComputerController</code> class:
+<code>public class ComputerController: CrudControllerBase&lt;ComputerModel&gt;</code>
+<code>public class ComputerModel : CrudModelBase</code>
+<code>{</code>
+<code>public string OemName { get; set; }</code>
+<code>public string Model { get; set; }</code>
+<code>}</code></p>
 </li>
 <li>
 <h3>
@@ -64,8 +70,12 @@ The <a href="http://alokmysore.com/MitchellCodeChallenge/Challenge.pdf">Challeng
 
 <p>The API is hosted on <a href="http://mitchellchallenge.azurewebsites.net">http://mitchellchallenge.azurewebsites.net</a>. </p>
       </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/alok-sm">alok-sm</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-
+    <script src="javascripts/scale.fix.js"></script>
     
   </body>
 </html>
