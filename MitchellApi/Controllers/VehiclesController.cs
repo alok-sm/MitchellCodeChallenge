@@ -29,7 +29,7 @@ namespace MitchellApi.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Mandatory parameters not sent");
             }
 
-            return null;;
+            return null;
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace MitchellApi.Controllers
         /// <returns>The HTTP response message</returns>
         public override HttpResponseMessage Put(int id, VehicleModel model)
         {
-            return ValidateModel(model) ?? base.Post(model);
+            return ValidateModel(model) ?? base.Put(model);
         }
     }
 }
