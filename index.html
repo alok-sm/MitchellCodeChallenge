@@ -40,19 +40,19 @@ The <a href="http://alokmysore.com/MitchellCodeChallenge/Challenge.pdf">Challeng
 <p>The solution was architected with four ideas in mind:</p>
 
 <ul>
-<li>
-<h3>
-<a id="separation-of-crud-interface-and-the-vehicle-type" class="anchor" href="#separation-of-crud-interface-and-the-vehicle-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Separation of CRUD interface and the "Vehicle" type</h3>
+<li>### Separation of CRUD interface and the "Vehicle" type
+This is because most production applications use the CRUD interface several times and generalizing the CRUD aspect of the API would be useful if we were to write an endpoint for another class. This is how you would create a new <code>ComputerController</code> class:</li>
+</ul>
 
-<p>This is because most production applications use the CRUD interface several times and generalizing the CRUD aspect of the API would be useful if we were to write an endpoint for another class. This is how you would create a new <code>ComputerController</code> class:</p>
+<pre><code>    public class ComputerController: CrudControllerBase&lt;ComputerModel&gt;
+    public class ComputerModel : CrudModelBase
+    {
+        public string OemName { get; set; }
+        public string Model { get; set; }
+    }
+</code></pre>
 
-<p>public class ComputerController: CrudControllerBase
-public class ComputerModel : CrudModelBase
-{
-    public string OemName { get; set; }
-    public string Model { get; set; }
-}</p>
-</li>
+<ul>
 <li>
 <h3>
 <a id="separation-of-data-storage-and-application" class="anchor" href="#separation-of-data-storage-and-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Separation of data storage and application</h3>
