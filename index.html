@@ -39,10 +39,10 @@ The <a href="http://alokmysore.com/MitchellCodeChallenge/Challenge.pdf">Challeng
 
 <p>The solution was architected with four ideas in mind:</p>
 
-<ul>
-<li>### Separation of CRUD interface and the "Vehicle" type
-This is because most production applications use the CRUD interface several times and generalizing the CRUD aspect of the API would be useful if we were to write an endpoint for another class. This is how you would create a new <code>ComputerController</code> class:</li>
-</ul>
+<h3>
+<a id="separation-of-crud-interface-and-the-vehicle-type" class="anchor" href="#separation-of-crud-interface-and-the-vehicle-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Separation of CRUD interface and the "Vehicle" type</h3>
+
+<p>This is because most production applications use the CRUD interface several times and generalizing the CRUD aspect of the API would be useful if we were to write an endpoint for another class. This is how you would create a new <code>ComputerController</code> class:</p>
 
 <pre><code>public class ComputerController: CrudControllerBase&lt;ComputerModel&gt;
 public class ComputerModel : CrudModelBase
@@ -52,20 +52,15 @@ public class ComputerModel : CrudModelBase
 }
 </code></pre>
 
-<ul>
-<li>
 <h3>
 <a id="separation-of-data-storage-and-application" class="anchor" href="#separation-of-data-storage-and-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Separation of data storage and application</h3>
 
 <p>The challenge asks us to implement an in memory storage but in production application, we would use some sort of a database to store data. Hence, separating the interface and the implementation for the data storage is important</p>
-</li>
-<li>
+
 <h3>
 <a id="easy-extensibility-of-the-crud-interfact" class="anchor" href="#easy-extensibility-of-the-crud-interfact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Easy extensibility of the CRUD interfact</h3>
 
 <p>The CRUD interface can easily be extended to incorporate validation, etc. The controller class can override a virtual function on the <code>CrudControllerBase</code> class, do the validations and then (optionally) give the base class control to do the remaining job</p>
-</li>
-</ul>
 
 <pre><code>public override HttpResponseMessage Post(VehicleModel model)
 {
@@ -77,9 +72,8 @@ public class ComputerModel : CrudModelBase
 }
 </code></pre>
 
-<ul>
-<li>### Automated Unit Testing and API endpoint testing</li>
-</ul>
+<h3>
+<a id="automated-unit-testing-and-api-endpoint-testing" class="anchor" href="#automated-unit-testing-and-api-endpoint-testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Automated Unit Testing and API endpoint testing</h3>
 
 <p>The API is hosted on <a href="http://mitchellchallenge.azurewebsites.net">http://mitchellchallenge.azurewebsites.net</a>. </p>
       </section>
