@@ -20,8 +20,6 @@ namespace MitchellApi.Tests
             public string OemName { get; set; }
 
             public string Model { get; set; }
-
-            public override bool AutoIncrement => false;
         }
 
         /// <summary>
